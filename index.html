@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EaseBuddy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 🔷 Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <h1 class="logo"><i class="fas fa-graduation-cap"></i> Ease<span>Buddy</span></h1>
+    </div>
+    <div class="navbar-right">
+      <!-- Inside the navbar-right div, add this at the beginning -->
+      <button id="mobileMenuBtn" class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <input type="text" placeholder="Search..." class="search-input"/>
+      <button id="motivationBtn"><i class="fas fa-fire"></i> Motivation</button>
+      <button id="topperBtn"><i class="fas fa-trophy"></i> Topper Interviews</button>
+      <button id="plannerBtn"><i class="fas fa-calendar-alt"></i> Planner</button>
+      <button id="toggleTheme"><i class="fas fa-moon"></i> Dark Mode</button>
+      <button id="focusModeBtn"><i class="fas fa-crosshairs"></i> Focus</button>
+      <button id="analyticsBtn"><i class="fas fa-chart-line"></i> Analytics</button>
+    </div>
+  </div>
+
+  <!-- Planner Modal -->
+  <div id="plannerModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Study Planner</h2>
+      <div id="calendar"></div>
+      <div id="taskSection" class="hidden">
+        <div class="task-header">
+          <h3 id="selectedDateTitle">Tasks for <span id="taskDate"></span></h3>
+          <div id="taskInputContainer">
+            <input type="text" id="taskInput" placeholder="Add a task...">
+            <button id="addTaskBtn" class="add-task-btn">
+              <i class="fas fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+        <ul id="taskList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Doubt Solver Section -->
+  <div class="doubt-solver-container">
+    <div class="doubt-input-container">
+      <input type="text" id="doubtInput" placeholder="Write your doubt here...">
+    </div>
+    <button id="solveDoubtBtn">Solve Doubt</button>
+  </div>
+
+  <!-- 🔷 Main Content Wrapper -->
+  <div class="container">
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h3>Subjects</h3>
+      <ul id="subjectList" class="subject-list"></ul>
+    </div>
+    
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <!-- Main Progress Bar -->
+      <div class="main-progress-container">
+        <h2>Overall Progress</h2>
+        <div class="progress-label">
+          <span>Your learning journey</span>
+          <span id="overallProgressText">0% Complete</span>
+        </div>
+        <div class="main-progress-bar">
+          <div id="mainProgressFill" class="main-progress-fill"></div>
+        </div>
+      </div>
+      
+      <!-- Subject Progress Bar -->
+      <div id="subjectProgressContainer" class="subject-progress-container hidden">
+        <h2 id="subjectProgressTitle">Subject Progress</h2>
+        <div class="progress-label">
+          <span>Progress in <span id="currentSubjectName">Mathematics</span></span>
+          <span id="subjectProgressText">0% Complete</span>
+        </div>
+        <div class="subject-progress-bar">
+          <div id="subjectProgressFill" class="subject-progress-fill"></div>
+        </div>
+      </div>
+      
+      <!-- Subject Chapters Display Area -->
+      <div id="subjectDisplay" class="chapter-display hidden">
+        <h2 id="subjectTitle">Subject Chapters</h2>
+        <div class="chapter-list" id="chapterList"></div>
+      </div>
+      
+      <!-- Analytics Display Area -->
+      <div id="analyticsDisplay" class="analytics-display hidden">
+        <h2>Your Learning Analytics</h2>
+        <div class="analytics-grid">
+          <div class="analytics-card">
+            <h3>Progress Overview</h3>
+            <div class="progress-container-analytics">
+              <div class="progress-label">
+                <span>Mathematics</span>
+                <span id="mathProgress">0%</span>
+              </div>
+              <div class="progress-bar">
+                <div id="mathProgressFill" class="progress-fill" style="background: #4caf50;"></div>
+              </div>
+            </div>
+            <div class="progress-container-analytics">
+              <div class="progress-label">
+                <span>Science</span>
+                <span id="scienceProgress">0%</span>
+              </div>
+              <div class="progress-bar">
+                <div id="scienceProgressFill" class="progress-fill" style="background: #f44336;"></div>
+              </div>
+            </div>
+            <div class="progress-container-analytics">
+              <div class="progress-label">
+                <span>English</span>
+                <span id="englishProgress">0%</span>
+              </div>
+              <div class="progress-bar">
+                <div id="englishProgressFill" class="progress-fill" style="background: #2196F3;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <h3>Study Patterns</h3>
+            <p>Your most active study time: <strong id="studyTime">Not enough data</strong></p>
+            <p>Average study duration: <strong id="studyDuration">Not enough data</strong></p>
+            <p>Most studied subject: <strong id="topSubject">Not enough data</strong></p>
+          </div>
+          <div class="analytics-card">
+            <h3>Recommendations</h3>
+            <p>Based on your progress, you should focus on:</p>
+            <ul id="recommendationsList" style="margin-top: 10px; padding-left: 20px;">
+              <li>Complete at least one chapter daily</li>
+              <li>Review previous chapters weekly</li>
+              <li>Practice previous year questions</li>
+              <li>Focus on weak areas identified</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
