@@ -1,7 +1,10 @@
 # EaseBuddy 📚✨  
 **All-in-One Academic Organizer for 6th-12th Grade Students**  
 
-![EaseBuddy Screenshot](screenshot.png) *<!-- Replace with actual screenshot -->*
+![EaseBuddy Screenshot](screenshot1.png)
+![EaseBuddy Screenshot](screenshot2.png)
+![EaseBuddy Screenshot](screenshot3.png)
+![EaseBuddy Screenshot](screenshot4.png)
 
 ## 🚀 Key Features  
 - **Subject Dashboard**: Track progress in CBSE subjects (Math, Science, English, etc.)  
